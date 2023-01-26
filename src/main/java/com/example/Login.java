@@ -12,6 +12,7 @@ import java.awt.event.*;
 public class Login extends JFrame implements ActionListener {
     JButton signup,cancel;
     Login() {
+
         // Set the title name -- this should always be in first
         super("Login page");
         // change background
@@ -24,6 +25,7 @@ public class Login extends JFrame implements ActionListener {
         // To locate the text within the box - works only if setLayout is kept null
         user.setBounds(100, 20, 100, 20);
         add(user);
+        
         // creating place for label
         JTextField userField = new JTextField("Enter Customer name");
         // To locate the text within the box - works only if setLayout is kept null
