@@ -39,14 +39,14 @@ public class Signup extends JFrame implements ActionListener {
         JLabel user = new JLabel("User");
         user.setBounds(100, 70, 100, 20);
         add(user);
-        userField = new JTextField("Enter User Name");
+        userField = new JTextField("Enter Name");
         userField.setBounds(200, 70, 150, 20);
         add(userField);
 
         JLabel password = new JLabel("Password");
         password.setBounds(100, 100, 100, 20);
         add(password);
-        passwordField = new JTextField("Enter the password");
+        passwordField = new JTextField("Enter password");
         passwordField.setBounds(200, 100, 150, 20);
         add(passwordField);
 
@@ -57,21 +57,21 @@ public class Signup extends JFrame implements ActionListener {
         MeterNumberField.setBounds(200, 130, 150, 20);
         add(MeterNumberField);
 
-        ImageIcon i1 = new ImageIcon("\\icon\\image1.jpg");
+        ImageIcon i1 = new ImageIcon("//home//maniac//Desktop//electricity//src//icon//image2.png");
         Image i12 = i1.getImage().getScaledInstance(8, 8, Image.SCALE_DEFAULT);
         signup = new JButton("signup", new ImageIcon(i12));
         signup.setBounds(200, 200, 100, 20);
         signup.addActionListener(this);
         add(signup);
 
-        ImageIcon i2 = new ImageIcon("\\icon\\image1.jpg");
+        ImageIcon i2 = new ImageIcon("//home//maniac//Desktop//electricity//src//icon//image2.png");
         Image i22 = i2.getImage().getScaledInstance(8, 8, Image.SCALE_DEFAULT);
         cancel = new JButton("cancel", new ImageIcon(i22));
         cancel.setBounds(200, 260, 100, 20);
         cancel.addActionListener(this);
         add(cancel);
 
-        ImageIcon i3 = new ImageIcon("\\icon\\image1.jpg");
+        ImageIcon i3 = new ImageIcon("//home//maniac//Desktop//electricity//src//icon//image2.png");
         Image i32 = i3.getImage().getScaledInstance(8, 8, Image.SCALE_DEFAULT);
         back = new JButton("Back", new ImageIcon(i32));
         back.setBackground(Color.green);

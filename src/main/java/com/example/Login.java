@@ -10,7 +10,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Login extends JFrame implements ActionListener {
-    JButton signup,cancel;
+    JButton signup,cancel,log;
+    JTextField userField,passwordField,capchaField;
+    JLabel user,password, capcha,ques;
     Login() {
 
         // Set the title name -- this should always be in first
@@ -21,28 +23,28 @@ public class Login extends JFrame implements ActionListener {
         setLayout(null);
 
         // creating labels
-        JLabel user = new JLabel("UserName");
         // To locate the text within the box - works only if setLayout is kept null
+        user = new JLabel("UserName");
         user.setBounds(100, 20, 100, 20);
         add(user);
-        
         // creating place for label
-        JTextField userField = new JTextField("Enter Customer name");
         // To locate the text within the box - works only if setLayout is kept null
+         userField = new JTextField("Enter Customer name");
         userField.setBounds(200, 20, 150, 20);
         add(userField);
 
-        JLabel password = new JLabel("Password");
+        //Labels and its textfields
+        password = new JLabel("Password");
         password.setBounds(100, 60, 100, 20);
         add(password);
-        JTextField passwordField = new JTextField("Enter the password");
+        passwordField = new JTextField("Enter the password");
         passwordField.setBounds(200, 60, 150, 20);
         add(passwordField);
 
-        JLabel capcha = new JLabel("Capcha ");
+        capcha = new JLabel("Capcha ");
         capcha.setBounds(100, 100, 100, 20);
         add(capcha);
-        JTextField capchaField = new JTextField("Enter capcha as seen below");
+        capchaField = new JTextField("Enter capcha as seen below");
         capchaField.setBounds(200, 100, 150, 20);
         add(capchaField);
 
@@ -59,30 +61,31 @@ public class Login extends JFrame implements ActionListener {
         add(loginoption);
 
         // Button for logging in
-        ImageIcon i1 = new ImageIcon("\\icon\\image1.jpg");
+        ImageIcon i1 = new ImageIcon("//home//maniac//Desktop//electricity//src//icon//image2.png");
         Image i11 = i1.getImage().getScaledInstance(8, 8, Image.SCALE_DEFAULT);
-        JButton log = new JButton("Login", new ImageIcon(i11));
+        log = new JButton("Login", new ImageIcon(i11));
         // new ImageIcon can be replaced with new Imageicon(imagenum)
         log.setBounds(150, 200, 100, 20);
         add(log);
 
-        ImageIcon i2 = new ImageIcon("\\icon\\image1.jpg");
+        ImageIcon i2 = new ImageIcon("//home//maniac//Desktop//electricity//src//icon//image2.png");
         Image i22 = i2.getImage().getScaledInstance(8, 8, Image.SCALE_DEFAULT);
         cancel = new JButton("Cancel", new ImageIcon(i22));
         cancel.setBounds(270, 200, 100, 20);
         cancel.addActionListener(this);
         add(cancel);
 
-        JLabel ques = new JLabel("Have no login ID? Then sign up...!");
-        ques.setBounds(500, 500, 100, 20);
+        ques = new JLabel("Have no login ID? Then sign up...!");
+        ques.setBounds(100, 170, 250, 20);
+        add(ques);
         
-        ImageIcon i3 = new ImageIcon("\\icon\\image1.jpg");
+        ImageIcon i3 = new ImageIcon("//home//maniac//Desktop//electricity//src//icon//image2.png");
         Image i32 = i3.getImage().getScaledInstance(8, 8, Image.SCALE_DEFAULT);
         signup = new JButton("Signup", new ImageIcon(i32));
         signup.setBounds(390, 200, 100, 20);
         signup.addActionListener(this);
+        setVisible(false);
         add(signup);
-
         setSize(600, 400);
         setLocation(670, 600);
         setVisible(true);
