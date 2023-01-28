@@ -39,21 +39,21 @@ public class Signup extends JFrame implements ActionListener {
         JLabel user = new JLabel("User");
         user.setBounds(100, 70, 100, 20);
         add(user);
-        userField = new JTextField("Enter Name");
+        userField = new JTextField("");
         userField.setBounds(200, 70, 150, 20);
         add(userField);
 
         JLabel password = new JLabel("Password");
         password.setBounds(100, 100, 100, 20);
         add(password);
-        passwordField = new JTextField("Enter password");
+        passwordField = new JTextField("");
         passwordField.setBounds(200, 100, 150, 20);
         add(passwordField);
 
         JLabel MeterNumber = new JLabel("Meter Number");
         MeterNumber.setBounds(100, 130, 100, 20);
         add(MeterNumber);
-        MeterNumberField = new JTextField("Enter meter number");
+        MeterNumberField = new JTextField("");
         MeterNumberField.setBounds(200, 130, 150, 20);
         add(MeterNumberField);
 
@@ -101,6 +101,7 @@ public class Signup extends JFrame implements ActionListener {
                 DbConnect db = new DbConnect();
                 //query has to be written to insert into the database 
                 String query = "Insert into logindata values('"+meterValue+"','"+userValue+"','"+passwordValue+"','"+atype+"')";
+                //Here the database is being updated with addtional rows
                 db.s.executeUpdate(query);
                 JOptionPane.showMessageDialog(null,"account created");
                 setVisible(false);
