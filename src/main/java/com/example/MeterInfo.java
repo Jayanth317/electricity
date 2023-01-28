@@ -15,13 +15,14 @@ import javax.swing.JPanel;
 public class MeterInfo extends JFrame implements ActionListener {
     JLabel MeterNumber, MeterNumberValue1, Meterty, Location, Supplier, Billing, header, Note;
 
-    JButton Back, Submit; // submit
+    JButton Back, Submit; 
     Choice MeterTy, MeterLoc, PowerSupp, BillType;
-    String MeternumberValue;
+    String MeterNumberValue;
 
     MeterInfo(String MeterNumberValue) {
         super("Meter details");
-        this.MeternumberValue = MeternumberValue;
+        this.MeterNumberValue = MeterNumberValue;
+        
         setSize(700, 500);
         setLocation(400, 300);
 
@@ -123,15 +124,14 @@ public class MeterInfo extends JFrame implements ActionListener {
         if (arg.getSource() == Submit) {
             setVisible(false);
         } else {
-            String MeterNumberValue1 = this.MeternumberValue;
+            String input = MeterNumberValue;
             String MeterType = MeterTy.getSelectedItem();
             String MeterLocation = MeterLoc.getSelectedItem();
             String PowerSupplier = PowerSupp.getSelectedItem();
             String BillingType = BillType.getSelectedItem();
             String Days = "30";
-
             String query1 = "insert into meterInfo values('" 
-                    + MeterNumberValue1 + "','" 
+                    + input + "','" 
                     + MeterType + "','" 
                     + MeterLocation + "','"
                     + PowerSupplier + "','" 
@@ -141,9 +141,9 @@ public class MeterInfo extends JFrame implements ActionListener {
             try {
                 DbConnect db = new DbConnect();
                 db.s.executeUpdate(query1);
-                JOptionPane.showMessageDialog(null, "Customer details added succesfully!");
+                JOptionPane.showMessageDialog(null, "Customer details added succesfully!"+input);
                 setVisible(false);
-                new Login();
+                //new Login();
             } catch (Exception e) {
                 e.printStackTrace();
             }

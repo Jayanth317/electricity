@@ -151,7 +151,7 @@ public class NewCustomer extends JFrame implements ActionListener {
                 DbConnect db = new DbConnect();
                 db.s.executeUpdate(query1);
                 db.s.executeUpdate(query2);
-                JOptionPane.showMessageDialog(null, "Customer details added succesfully!");
+                JOptionPane.showMessageDialog(null, "Customer details added succesfully!"+MeterNumberValue);
                 setVisible(false);
                 
                 new MeterInfo(MeterNumberValue);
@@ -159,7 +159,6 @@ public class NewCustomer extends JFrame implements ActionListener {
                 e.printStackTrace();
             }
         }
-
     }
 
     public static void main(String[] args) {
