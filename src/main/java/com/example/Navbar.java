@@ -10,7 +10,7 @@ import javax.swing.KeyStroke;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Navbar extends JFrame {
+public class Navbar extends JFrame implements ActionListener{
     Navbar() {
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setBounds(450, 150, 700, 400);
@@ -42,20 +42,48 @@ public class Navbar extends JFrame {
         JMenuItem HomeScreen = new JMenuItem("Home", new ImageIcon(i22));
         HomeScreen.setBackground(Color.GREEN);
         HomeScreen.setFont(new Font("SERIF", Font.ITALIC, 15));
+        HomeScreen.setMnemonic('Q');
+        HomeScreen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         Home.add(HomeScreen);
 
         JMenuItem User = new JMenuItem("User", new ImageIcon(i22));
         User.setBackground(Color.CYAN);
         User.setFont(new Font("SERIF", Font.ITALIC, 15));
+        User.setMnemonic('Q');
+        User.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         Home.add(User);
 
+        JMenuItem NewUser = new JMenuItem("NewUser", new ImageIcon(i22));
+        NewUser.setBackground(Color.CYAN);
+        NewUser.setFont(new Font("SERIF", Font.ITALIC, 15));
+        NewUser.addActionListener(this);
+        NewUser.setMnemonic('Q');
+        NewUser.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+        Home.add(NewUser);
+
+        JMenuItem CustomerDetails = new JMenuItem("CustomerDetails", new ImageIcon(i22));
+        CustomerDetails.setBackground(Color.CYAN);
+        CustomerDetails.setFont(new Font("SERIF", Font.ITALIC, 15));
+        CustomerDetails.addActionListener(this);
+        CustomerDetails.setMnemonic('Q');
+        CustomerDetails.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+        Home.add(CustomerDetails);
+
+        JMenuItem DepositDetails = new JMenuItem("DepositDetails", new ImageIcon(i22));
+        DepositDetails.setBackground(Color.CYAN);
+        DepositDetails.setFont(new Font("SERIF", Font.ITALIC, 15));
+        DepositDetails.addActionListener(this);
+        DepositDetails.setMnemonic('Q');
+        DepositDetails.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+        Home.add(DepositDetails);
         //Billing button
-        JMenuItem Bill = new JMenuItem("Bill");
+        JMenuItem Bill = new JMenuItem("CalculateBill");
         Bill.setBackground(Color.GRAY);
         Bill.setFont(new Font("SERIF", Font.ITALIC, 16));
         Bill.setIcon(new ImageIcon(i22));
         Bill.setMnemonic('Q');
         Bill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+        Bill.addActionListener(this);
         Billing.add(Bill);
 
         
@@ -64,6 +92,7 @@ public class Navbar extends JFrame {
         GSTBill.setFont(new Font("SERIF", Font.ITALIC, 16));
         GSTBill.setIcon(new ImageIcon(i22));
         GSTBill.setMnemonic('R');
+        GSTBill.addActionListener(this);
         GSTBill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         Billing.add(GSTBill);
 
@@ -72,6 +101,7 @@ public class Navbar extends JFrame {
         GSTBill2.setFont(new Font("SERIF", Font.ITALIC, 16));
         GSTBill2.setIcon(new ImageIcon(i22));
         GSTBill2.setMnemonic('S');
+        GSTBill2.addActionListener(this);
         GSTBill2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         Billing.add(GSTBill2);
 
@@ -101,5 +131,19 @@ public class Navbar extends JFrame {
 
     public static void main(String[] args) {
         new Navbar();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent arg) {
+        String msg = arg.getActionCommand();
+        if(msg.equals("NewUser")){
+            new NewCustomer();
+        }else if(msg.equals("CustomerDetails")){
+            new Login();
+        }else if (msg.equals("DepositDetails")){
+
+        }else if (msg.equals("CalculateBill")){
+            new MeterInfo(msg);
+        }
     }
 }

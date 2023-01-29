@@ -141,12 +141,13 @@ public class MeterInfo extends JFrame implements ActionListener {
             try {
                 DbConnect db = new DbConnect();
                 db.s.executeUpdate(query1);
-                JOptionPane.showMessageDialog(null, "Customer details added succesfully!"+input);
+                JOptionPane.showMessageDialog(null, "Customer details added succesfully!");
                 setVisible(false);
                 //new Login();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            
         }
 
     }
