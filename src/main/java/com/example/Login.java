@@ -33,7 +33,7 @@ public class Login extends JFrame implements ActionListener {
         add(user);
         // creating place for label
         // To locate the text within the box - works only if setLayout is kept null
-        userField = new JTextField("Enter Customer name");
+        userField = new JTextField("");
         userField.setBounds(200, 20, 150, 20);
         add(userField);
 
@@ -41,14 +41,14 @@ public class Login extends JFrame implements ActionListener {
         password = new JLabel("Password");
         password.setBounds(100, 60, 100, 20);
         add(password);
-        passwordField = new JTextField("Enter the password");
+        passwordField = new JTextField("");
         passwordField.setBounds(200, 60, 150, 20);
         add(passwordField);
 
-        capcha = new JLabel("Capcha ");
+        capcha = new JLabel("userType");
         capcha.setBounds(100, 100, 100, 20);
         add(capcha);
-        capchaField = new JTextField("Enter capcha as seen below");
+        capchaField = new JTextField("");
         capchaField.setBounds(200, 100, 150, 20);
         add(capchaField);
 
@@ -56,10 +56,9 @@ public class Login extends JFrame implements ActionListener {
         role.setBounds(100, 140, 100, 20);
         add(role);
 
-        // Create dropdown box
+        // Create dropdown boxgetFont()
         loginoption = new Choice();
         loginoption.add("Admin");
-        loginoption.add("HQ");
         loginoption.add("customer");
         loginoption.setBounds(200, 140, 150, 20);
         add(loginoption);
@@ -113,9 +112,10 @@ public class Login extends JFrame implements ActionListener {
 
                 // if the data is available...
                 if (rs.next()) {
+                    String meter = rs.getString("meterValue");
                     JOptionPane.showMessageDialog(null, "Login successful!");
                     setVisible(false);
-                    new Navbar();
+                    new Navbar(atype,meter);
                 } else {
                     JOptionPane.showMessageDialog(null, "invalid login!");
                     userField.setText("");
@@ -125,7 +125,7 @@ public class Login extends JFrame implements ActionListener {
                 e1.printStackTrace();
             }
         } else if (e.getSource() == signup) {
-            new Signup();
+            new Signup(); 
         } else if (e.getSource() == cancel) {
             setVisible(false);
         }

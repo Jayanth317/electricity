@@ -23,6 +23,7 @@
     <jacoco.unit-tests.limit.method-complexity>5</jacoco.unit-tests.limit.method-complexity>
   </properties>
   <dependencies>
+
     <dependency>
       <groupId>rs2xml</groupId>
       <artifactId>rs2xml</artifactId>
@@ -36,12 +37,14 @@
       <artifactId>net</artifactId>
       <version>10.1.1</version>
     </dependency>
+
     <dependency>
       <groupId>org.sonarsource.xml</groupId>
       <artifactId>xml</artifactId>
       <version>2.7.0.3820</version>
       <type>pom</type>
     </dependency>
+
     <dependency>
       <groupId>com.fasterxml.jackson.jakarta.rs</groupId>
       <artifactId>jackson-jakarta-rs-base</artifactId>
@@ -60,6 +63,7 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
@@ -67,6 +71,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
   <build>
     <plugins>
       <plugin>

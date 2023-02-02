@@ -84,19 +84,21 @@ public class DepositDetails extends JFrame implements ActionListener {
         add(Print);
 
         setVisible(true);
-
     }
-
-    public static void main(String[] args) {
-        new DepositDetails();
-    }
-
+    
     @Override
     public void actionPerformed(ActionEvent arg) {
-        if(arg.getSource() == Search){
-        String query = "select * from Bill where MeterNumber";
-        }
-        else{
+        if (arg.getSource() == Search) {
+            String query = "select * from Bill where MeterNumber = " +MeterNumberChoice.getSelectedItem();
+            try {
+                DbConnect db = new DbConnect();
+                ResultSet rs = db.s.executeQuery(query);
+                table.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
             try {
                 table.print();
             } catch (Exception e) {
@@ -104,4 +106,11 @@ public class DepositDetails extends JFrame implements ActionListener {
             }
         }
     }
+
+    public static void main(String[] args) {
+        new DepositDetails();
+    }
+
+    
+
 }
