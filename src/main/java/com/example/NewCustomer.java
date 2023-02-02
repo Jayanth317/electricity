@@ -22,8 +22,8 @@ public class NewCustomer extends JFrame implements ActionListener {
 
     NewCustomer() {
         // distance from left,top,width,height
-        setSize(700, 500);
-        setLocation(400, 300);
+        setBounds(300,400,600,400);
+
 
         JPanel jp = new JPanel();
         jp.setLayout(null);
@@ -154,7 +154,6 @@ public class NewCustomer extends JFrame implements ActionListener {
                 db.s.executeUpdate(query2);
                 JOptionPane.showMessageDialog(null, "Customer details added succesfully!"+MeterNumberValue);
                 setVisible(false);
-                
                 new MeterInfo(MeterNumberValue);
             } catch (Exception e) {
                 e.printStackTrace();

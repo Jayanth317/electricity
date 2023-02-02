@@ -17,11 +17,12 @@ public class Signup extends JFrame implements ActionListener {
 	// Buttons are to be declared globally to prevent access issues
 	JButton signup, back, cancel;
 	Choice loginoption;
-	JTextField userField, passwordField, MeterNumberField;
+	JTextField userField, passwordField, MeterNumberField,name;
 
 	Signup() {
 
-		setBounds(450, 150, 700, 400);
+		setBounds(300,400,600,400);
+
 		getContentPane().setBackground(Color.CYAN);
 		setLayout(null);
 		// setVisible(true);
@@ -43,6 +44,7 @@ public class Signup extends JFrame implements ActionListener {
 		MeterNumber.setBounds(100, 70, 100, 20);
 		MeterNumber.setVisible(false);
 		add(MeterNumber);
+
 		MeterNumberField = new JTextField("");
 		MeterNumberField.setBounds(200, 70, 150, 20);
 		MeterNumberField.setVisible(false);
@@ -51,9 +53,20 @@ public class Signup extends JFrame implements ActionListener {
 		JLabel user = new JLabel("User Name");
 		user.setBounds(100, 100, 100, 20);
 		add(user);
+
 		userField = new JTextField("");
 		userField.setBounds(200, 100, 150, 20);
 		add(userField);
+
+		JLabel lblname = new JLabel("Name");
+        lblname.setBounds(100, 160, 140, 20);
+        lblname.setForeground(Color.GRAY);
+        lblname.setFont(new Font("Tahoma", Font.BOLD, 14));
+        add(lblname);
+        
+        name = new JTextField("");
+        name.setBounds(200, 160, 150, 20);
+        add(name);
 
 		JLabel password = new JLabel("Password");
 		password.setBounds(100, 130, 100, 20);
@@ -68,28 +81,27 @@ public class Signup extends JFrame implements ActionListener {
 				if (user.equals("customer")) {
 					MeterNumber.setVisible(true);
 					MeterNumberField.setVisible(true);
-					userField.setEditable(false);
+					name.setEditable(false);
 				} else {
 					MeterNumber.setVisible(false);
 					MeterNumberField.setVisible(false);
+					name.setEditable(true);
 				}
 			}
 		});
 
-		user.addFocusListener(new FocusListener() {
+		MeterNumberField.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent fe) {
 
 			}
-
 			@Override
 			public void focusLost(FocusEvent fe) {
 				try {
 					DbConnect db = new DbConnect();
-					ResultSet rs = db.s.executeQuery(
-							"select  * from logindata where meterValue =  '" + userField.getText() + "' ");
+					ResultSet rs = db.s.executeQuery( "select  * from logindata where meterValue =  '" + MeterNumberField.getText() + "' ");
 					while (rs.next()) {
-						user.setText(rs.getString("userValue"));
+						name.setText(rs.getString("userValue"));
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -136,7 +148,7 @@ public class Signup extends JFrame implements ActionListener {
 			String userValue = userField.getText();
 			String passwordValue = passwordField.getText();
 			String meterValue = MeterNumberField.getText();
-
+			String uname = name.getText();
 			try {
 				DbConnect db = new DbConnect();
 				String query = null;
@@ -146,7 +158,8 @@ public class Signup extends JFrame implements ActionListener {
 							+ meterValue + "','"
 							+ userValue + "','"
 							+ passwordValue + "','"
-							+ atype + "')";
+							+ atype + "','"
+							+ uname + "')";
 				} else {
 					query = "update logindata set userValue = '"
 							+ userValue + "',passwordValue = '"

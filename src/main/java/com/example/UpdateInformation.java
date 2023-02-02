@@ -19,7 +19,7 @@ public class UpdateInformation extends JFrame implements ActionListener {
     UpdateInformation(String MeterNumberValue) {
         super("Update information");
         this.MeterNumberValue = MeterNumberValue;
-        setBounds(300, 400, 800, 400);
+        setBounds(300, 400, 600, 400);
         getContentPane().setBackground(Color.white);
         setLayout(null);
 
@@ -112,7 +112,7 @@ public class UpdateInformation extends JFrame implements ActionListener {
                 db.s.executeUpdate(query1);
                 JOptionPane.showMessageDialog(null, "Customer details updated succesfully!");
                 setVisible(false);
-                new MeterInfo(MeterNumberValue);
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }

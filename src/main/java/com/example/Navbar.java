@@ -11,13 +11,13 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Navbar extends JFrame implements ActionListener {
-    String atype,meterValue;
+    String atype, meterValue;
 
-    Navbar(String atype,String meterValue) {
+    Navbar(String atype, String meterValue) {
         this.atype = atype;
         this.meterValue = meterValue;
         // setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setBounds(450, 150, 700, 400);
+        setBounds(300, 400, 700, 480);
         ImageIcon i1 = new ImageIcon("//home//maniac//Desktop//electricity//src//icon//image2.png");
         Image i12 = i1.getImage().getScaledInstance(700, 400, Image.SCALE_DEFAULT);
         ImageIcon i13 = new ImageIcon(i12);
@@ -43,30 +43,17 @@ public class Navbar extends JFrame implements ActionListener {
         JMenu Utility = new JMenu("Utility");
 
         JMenu Exit = new JMenu("Exit");
-        // if (atype.equals("Admin")) {
+        if (atype.equals("Admin")) {
             navbar.add(Home);
-        // } else {
+        } else {
             navbar.add(Report);
             navbar.add(Information);
             navbar.add(User);
-        // }
+        }
         navbar.add(Utility);
         navbar.add(Exit);
 
-        // dropdown elements
-        // Home button
-        JMenuItem HomeScreen = new JMenuItem("Home", new ImageIcon(i22));
-        HomeScreen.setBackground(Color.GREEN);
-        HomeScreen.setFont(new Font("SERIF", Font.ITALIC, 15));
-        HomeScreen.setMnemonic('Q');
-        HomeScreen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-
-        JMenuItem User1 = new JMenuItem("User", new ImageIcon(i22));
-        User1.setBackground(Color.CYAN);
-        User1.setFont(new Font("SERIF", Font.ITALIC, 15));
-        User1.setMnemonic('Q');
-        User1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-
+        // Home
         JMenuItem NewUser = new JMenuItem("NewUser", new ImageIcon(i22));
         NewUser.setBackground(Color.CYAN);
         NewUser.setFont(new Font("SERIF", Font.ITALIC, 15));
@@ -81,24 +68,24 @@ public class Navbar extends JFrame implements ActionListener {
         CustomerDetails.setMnemonic('Q');
         CustomerDetails.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 
-        JMenuItem DepositDetails = new JMenuItem("Deposit details",new ImageIcon(i22));
+        JMenuItem DepositDetails = new JMenuItem("Deposit details", new ImageIcon(i22));
         DepositDetails.setBackground(Color.CYAN);
         DepositDetails.setFont(new Font("SERIF", Font.ITALIC, 15));
         DepositDetails.addActionListener(this);
         DepositDetails.setMnemonic('Q');
         DepositDetails.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 
-        // Billing button
-        JMenuItem Bill = new JMenuItem("CalculateBill");
-        Bill.setBackground(Color.GRAY);
-        Bill.setFont(new Font("SERIF", Font.ITALIC, 16));
-        Bill.setIcon(new ImageIcon(i22));
-        Bill.setMnemonic('Q');
-        Bill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-        Bill.addActionListener(this);
+        JMenuItem CalculateBill = new JMenuItem("Calculate your Bill");
+        CalculateBill.setBackground(Color.cyan);
+        CalculateBill.setFont(new Font("SERIF", Font.ITALIC, 16));
+        CalculateBill.setIcon(new ImageIcon(i22));
+        CalculateBill.setMnemonic('S');
+        CalculateBill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+        CalculateBill.addActionListener(this);
 
+        // User
         JMenuItem BillDetails = new JMenuItem("Bill Details");
-        BillDetails.setBackground(Color.GRAY);
+        BillDetails.setBackground(Color.LIGHT_GRAY);
         BillDetails.setFont(new Font("SERIF", Font.ITALIC, 16));
         BillDetails.setIcon(new ImageIcon(i22));
         BillDetails.setMnemonic('R');
@@ -106,38 +93,25 @@ public class Navbar extends JFrame implements ActionListener {
         BillDetails.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 
         JMenuItem PayBill = new JMenuItem("Pay your Bill");
-        PayBill.setBackground(Color.GRAY);
+        PayBill.setBackground(Color.LIGHT_GRAY);
         PayBill.setFont(new Font("SERIF", Font.ITALIC, 16));
         PayBill.setIcon(new ImageIcon(i22));
         PayBill.setMnemonic('S');
         PayBill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         PayBill.addActionListener(this);
-            
+
+        // Report
         JMenuItem GenerateBill = new JMenuItem("Generate Bill");
-        GenerateBill.setBackground(Color.GRAY);
+        GenerateBill.setBackground(Color.MAGENTA);
         GenerateBill.setFont(new Font("SERIF", Font.ITALIC, 16));
         GenerateBill.setIcon(new ImageIcon(i22));
         GenerateBill.setMnemonic('S');
         GenerateBill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         GenerateBill.addActionListener(this);
 
-        // User button
-        JMenuItem UserInBilling = new JMenuItem("User in Billing..?");
-        UserInBilling.setBackground(Color.GRAY);
-        UserInBilling.setFont(new Font("SERIF", Font.ITALIC, 16));
-        UserInBilling.setIcon(new ImageIcon(i22));
-        UserInBilling.setMnemonic('S');
-        UserInBilling.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-
-        JMenuItem LoginIssues = new JMenuItem("Issues with login?");
-        LoginIssues.setBackground(Color.GRAY);
-        LoginIssues.setFont(new Font("SERIF", Font.ITALIC, 16));
-        LoginIssues.setIcon(new ImageIcon(i22));
-        LoginIssues.setMnemonic('S');
-        LoginIssues.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-
+        // Information
         JMenuItem UpdateInformation = new JMenuItem("Update information");
-        UpdateInformation.setBackground(Color.GRAY);
+        UpdateInformation.setBackground(Color.orange);
         UpdateInformation.setFont(new Font("SERIF", Font.ITALIC, 16));
         UpdateInformation.setIcon(new ImageIcon(i22));
         UpdateInformation.setMnemonic('S');
@@ -145,15 +119,16 @@ public class Navbar extends JFrame implements ActionListener {
         UpdateInformation.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 
         JMenuItem ViewInformation = new JMenuItem("View information");
-        ViewInformation.setBackground(Color.GRAY);
+        ViewInformation.setBackground(Color.orange);
         ViewInformation.setFont(new Font("SERIF", Font.ITALIC, 16));
         ViewInformation.setIcon(new ImageIcon(i22));
         ViewInformation.setMnemonic('S');
         ViewInformation.addActionListener(this);
         ViewInformation.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 
+        // Utility
         JMenuItem Notepad = new JMenuItem("Notepad");
-        Notepad.setBackground(Color.GRAY);
+        Notepad.setBackground(Color.PINK);
         Notepad.setFont(new Font("SERIF", Font.ITALIC, 16));
         Notepad.setIcon(new ImageIcon(i22));
         Notepad.setMnemonic('Q');
@@ -161,28 +136,39 @@ public class Navbar extends JFrame implements ActionListener {
         Notepad.addActionListener(this);
 
         JMenuItem Calculator = new JMenuItem("Calculator");
-        Calculator.setBackground(Color.GRAY);
+        Calculator.setBackground(Color.pink);
         Calculator.setFont(new Font("SERIF", Font.ITALIC, 16));
         Calculator.setIcon(new ImageIcon(i22));
         Calculator.setMnemonic('Q');
         Calculator.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         Calculator.addActionListener(this);
 
-        Home.add(HomeScreen);
-        User.add(User1);
-        User.add(NewUser);
-        User.add(CustomerDetails);
-        User.add(DepositDetails);
-        User.add(GenerateBill);
+        //Exit
+        JMenuItem Close = new JMenuItem("Close Window");
+        Close.setBackground(Color.gray);
+        Close.setFont(new Font("SERIF", Font.ITALIC, 16));
+        Close.setIcon(new ImageIcon(i22));
+        Close.setMnemonic('Q');
+        Close.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+        Close.addActionListener(this);
+
+        Home.add(NewUser);
+        Home.add(CustomerDetails);
+        Home.add(DepositDetails);
+        Home.add(CalculateBill);
+
+        Report.add(GenerateBill);
+
         User.add(BillDetails);
         User.add(PayBill);
-        Report.add(UserInBilling);
-        Report.add(LoginIssues);
+
         Information.add(UpdateInformation);
         Information.add(ViewInformation);
+
         Utility.add(Notepad);
         Utility.add(Calculator);
 
+        Exit.add(Close);
         setJMenuBar(navbar);
         setLayout(new FlowLayout());
 
@@ -190,7 +176,7 @@ public class Navbar extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Navbar("","");
+        new Navbar("", "");
     }
 
     @Override
@@ -202,33 +188,34 @@ public class Navbar extends JFrame implements ActionListener {
             new CustomerDetails();
         } else if (msg.equals("Deposit details")) {
             new DepositDetails();
-        } else if (msg.equals("CalculateBill")) {
-            new MeterInfo(msg);
-        }else if(msg.equals("View information")){
+        } else if (msg.equals("Calculate your Bill")) {
+            new CalculateBill();
+        } else if (msg.equals("View information")) {
             new ViewInformation(meterValue);
-        }else if(msg.equals("Update information")){
+        } else if (msg.equals("Update information")) {
             new UpdateInformation(meterValue);
-        }else if(msg.equals("Bill Details")){
+        } else if (msg.equals("Bill Details")) {
             new BillDetails(meterValue);
-        }else if(msg.equals("Notepad")){
+        } else if (msg.equals("Notepad")) {
             try {
-                //notepad is the notepad.exe equivalent of linux
+                // notepad is the notepad.exe equivalent of linux
                 Runtime.getRuntime().exec("notepad");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if(msg.equals("Calculator")){
+        } else if (msg.equals("Calculator")) {
             try {
-                //galculator is the calculator equivalent of linux
+                // galculator is the calculator equivalent of linux
                 Runtime.getRuntime().exec("galculator");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else if(msg.equals("Pay your Bill")){
+        } else if (msg.equals("Pay your Bill")) {
             new PayBill(meterValue);
-        }else if(msg.equals("Generate Bill")){
+        } else if (msg.equals("Generate Bill")) {
             new GenerateBill(meterValue);
+        }else if(msg.equals("Close Window")){
+            setVisible(false);
         }
 
     }

@@ -20,7 +20,7 @@ public class DepositDetails extends JFrame implements ActionListener {
 
     DepositDetails() {
         super("Deposit details");
-        setBounds(500, 400, 700, 400);
+        setBounds(300,400,600,400);
         setLayout(null);
         getContentPane().setBackground(Color.white);
 
@@ -89,7 +89,7 @@ public class DepositDetails extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent arg) {
         if (arg.getSource() == Search) {
-            String query = "select * from Bill where MeterNumber = " +MeterNumberChoice.getSelectedItem();
+            String query = "select * from Bill where MeterNumber = " +MeterNumberChoice.getSelectedItem() + " and BillingMonth =  '"+MonthNumberChoice.getSelectedItem()+"' ";
             try {
                 DbConnect db = new DbConnect();
                 ResultSet rs = db.s.executeQuery(query);

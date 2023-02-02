@@ -22,9 +22,7 @@ public class MeterInfo extends JFrame implements ActionListener {
     MeterInfo(String MeterNumberValue) {
         super("Meter details");
         this.MeterNumberValue = MeterNumberValue;
-        
-        setSize(700, 500);
-        setLocation(400, 300);
+        setBounds(300,400,600,400);
 
         JPanel jp = new JPanel();
         jp.setLayout(null);
@@ -143,7 +141,7 @@ public class MeterInfo extends JFrame implements ActionListener {
                 db.s.executeUpdate(query1);
                 JOptionPane.showMessageDialog(null, "Customer details added succesfully!");
                 setVisible(false);
-                //new Login();
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }

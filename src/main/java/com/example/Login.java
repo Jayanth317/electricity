@@ -23,7 +23,7 @@ public class Login extends JFrame implements ActionListener {
         // Set the title name -- this should always be in first
         super("Login page");
         // change background
-        setBounds(670, 600,600, 400);
+        setBounds(300,400,600,400);
         getContentPane().setBackground(Color.WHITE);
         // to prevent default values, everything is set to null
         setLayout(null);
@@ -47,22 +47,17 @@ public class Login extends JFrame implements ActionListener {
         passwordField.setBounds(200, 60, 150, 20);
         add(passwordField);
 
-        capcha = new JLabel("userType");
-        capcha.setBounds(100, 100, 100, 20);
-        add(capcha);
-        capchaField = new JTextField("");
-        capchaField.setBounds(200, 100, 150, 20);
-        add(capchaField);
+        
 
         JLabel role = new JLabel("Role");
-        role.setBounds(100, 140, 100, 20);
+        role.setBounds(100, 100, 100, 20);
         add(role);
 
         // Create dropdown boxgetFont()
         loginoption = new Choice();
         loginoption.add("Admin");
         loginoption.add("customer");
-        loginoption.setBounds(200, 140, 150, 20);
+        loginoption.setBounds(200, 100, 150, 20);
         add(loginoption);
 
         // Button for logging in

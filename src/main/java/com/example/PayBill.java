@@ -103,8 +103,8 @@ public class PayBill extends JFrame implements ActionListener {
                 MeterNumberField.setText(MeterNumberValue);
                 CustomerField.setText(rs.getString("CustomerValue"));
             }
-            rs = db.s.executeQuery("select * from Bill where meterNumber = '" + MeterNumberValue
-                    + "' and BillingMonth = '" + BillingMonthChoice.getSelectedItem() + "' ");
+            rs = db.s.executeQuery("select * from Bill where meterNumber = '" + MeterNumberValue +
+                    "' and BillingMonth = '" + BillingMonthChoice.getSelectedItem() + "' ");
             while (rs.next()) {
                 UnitsConsumedField.setText(rs.getString("UnitsConsumed"));
                 TotalBillField.setText(rs.getString("TotalBill"));
@@ -120,7 +120,7 @@ public class PayBill extends JFrame implements ActionListener {
             public void itemStateChanged(ItemEvent arg) {
                 try {
                     DbConnect db = new DbConnect();
-                    ResultSet rs = db.s.executeQuery("select * from Bill where meterNumber = '" + MeterNumberValue
+                    ResultSet rs = db.s.executeQuery("select * from Bill where MeterNumber = '" + MeterNumberValue
                             + "' and BillingMonth = '" + BillingMonthChoice.getSelectedItem() + "' ");
                     while (rs.next()) {
                         UnitsConsumedField.setText(rs.getString("UnitsConsumed"));
@@ -162,7 +162,7 @@ public class PayBill extends JFrame implements ActionListener {
                 db.s.executeUpdate("update Bill set Status = 'Paid' where MeterNumber = '" + MeterNumberValue + "' ");
                 JOptionPane.showMessageDialog(null, "Paid successfully");
                 setVisible(false);
-                new UPI(MeterNumberValue );
+                new UPI(MeterNumberValue);
             } catch (Exception e) {
                 e.printStackTrace();
             }

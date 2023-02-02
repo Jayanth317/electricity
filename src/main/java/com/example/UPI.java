@@ -15,7 +15,8 @@ public class UPI extends JFrame implements ActionListener{
     UPI(String MeterNumberValue) {
         super("UPI Payments");
         this.MeterNumberValue = MeterNumberValue;
-        setBounds(300, 400, 800, 600);
+        setBounds(300,400,600,400);
+
         setLayout(null);
 
         JEditorPane ep = new JEditorPane();
@@ -27,7 +28,8 @@ public class UPI extends JFrame implements ActionListener{
             ep.setContentType("text/html");
             ep.setText("<html>Sorry could not load :( </html>");
         }
-
+    
+        
         JScrollPane sp = new JScrollPane(ep);
         add(sp);
 

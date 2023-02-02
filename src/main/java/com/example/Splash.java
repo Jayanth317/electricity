@@ -14,13 +14,13 @@ public class Splash extends JFrame implements Runnable, ActionListener {
     JButton login;
 
     Splash() {
-
         // insert images - inner parenthesis should contain location or the url of image
         ImageIcon i1 = new ImageIcon("//home//maniac//Desktop//electricity//src//icon//image2.png");
-        Image i11 = i1.getImage().getScaledInstance(700, 525, Image.SCALE_DEFAULT);
+        Image i11 = i1.getImage().getScaledInstance(730, 550, Image.SCALE_DEFAULT);
         ImageIcon i12 = new ImageIcon(i11);
         JLabel image = new JLabel(i12);
         add(image);
+
         // set visibility
         setVisible(true);
 
@@ -29,17 +29,17 @@ public class Splash extends JFrame implements Runnable, ActionListener {
             // dimensions of window
             setSize(i + x, i);
             // set location on screen
-            setLocation(600 - ((i + x) / 2), 500 - (i / 2));
+            setLocation(700 - ((i + x) / 2), 400 - (i / 2));
             try {
-                Thread.sleep(3);
+                Thread.sleep(5);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         JButton login = new JButton("Login");
-        login.setBounds(200, 200, 100, 20);
+        login.setBounds(300,400,600,400);
         try{
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -65,7 +65,7 @@ public class Splash extends JFrame implements Runnable, ActionListener {
     @Override
     public void run() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (Exception e) {
             e.printStackTrace();
         }

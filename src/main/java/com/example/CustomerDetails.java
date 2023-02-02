@@ -18,7 +18,7 @@ public class CustomerDetails extends JFrame implements ActionListener {
 
     CustomerDetails() {
         super("Customer details");
-        setBounds(500, 400, 700, 400);
+        setBounds(300,400,600,400);
 
         table = new JTable();
         try {
