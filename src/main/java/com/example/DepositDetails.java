@@ -20,7 +20,7 @@ public class DepositDetails extends JFrame implements ActionListener {
 
     DepositDetails() {
         super("Deposit details");
-        setBounds(300,400,600,400);
+        setBounds(300,400,700,400);
         setLayout(null);
         getContentPane().setBackground(Color.white);
 
