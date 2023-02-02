@@ -17,11 +17,13 @@ public class Login extends JFrame implements ActionListener {
     JLabel user, password, capcha, ques;
     Choice loginoption;
 
+
     Login() {
 
         // Set the title name -- this should always be in first
         super("Login page");
         // change background
+        setBounds(670, 600,600, 400);
         getContentPane().setBackground(Color.WHITE);
         // to prevent default values, everything is set to null
         setLayout(null);
@@ -91,8 +93,7 @@ public class Login extends JFrame implements ActionListener {
         setVisible(false);
         add(signup);
 
-        setSize(600, 400);
-        setLocation(670, 600);
+        
         setVisible(true);
     }
 

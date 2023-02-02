@@ -112,8 +112,15 @@ public class Navbar extends JFrame implements ActionListener {
         PayBill.setMnemonic('S');
         PayBill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         PayBill.addActionListener(this);
+            
+        JMenuItem GenerateBill = new JMenuItem("Generate Bill");
+        GenerateBill.setBackground(Color.GRAY);
+        GenerateBill.setFont(new Font("SERIF", Font.ITALIC, 16));
+        GenerateBill.setIcon(new ImageIcon(i22));
+        GenerateBill.setMnemonic('S');
+        GenerateBill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+        GenerateBill.addActionListener(this);
 
-        
         // User button
         JMenuItem UserInBilling = new JMenuItem("User in Billing..?");
         UserInBilling.setBackground(Color.GRAY);
@@ -166,7 +173,7 @@ public class Navbar extends JFrame implements ActionListener {
         User.add(NewUser);
         User.add(CustomerDetails);
         User.add(DepositDetails);
-        User.add(Bill);
+        User.add(GenerateBill);
         User.add(BillDetails);
         User.add(PayBill);
         Report.add(UserInBilling);
@@ -193,7 +200,7 @@ public class Navbar extends JFrame implements ActionListener {
             new NewCustomer();
         } else if (msg.equals("CustomerDetails")) {
             new CustomerDetails();
-        } else if (msg.equals("DepositDetails")) {
+        } else if (msg.equals("Deposit details")) {
             new DepositDetails();
         } else if (msg.equals("CalculateBill")) {
             new MeterInfo(msg);
@@ -220,6 +227,8 @@ public class Navbar extends JFrame implements ActionListener {
         }
         else if(msg.equals("Pay your Bill")){
             new PayBill(meterValue);
+        }else if(msg.equals("Generate Bill")){
+            new GenerateBill(meterValue);
         }
 
     }

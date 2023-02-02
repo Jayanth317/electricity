@@ -1,19 +1,24 @@
 package com.example;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.awt.Choice;
-
+import java.awt.Color;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
-public class PayBill extends JFrame {
+public class PayBill extends JFrame implements ActionListener {
     JLabel BillingMonth, Customer, UnitsConsumed, CustomerField, UnitsConsumedField, MeterNumber, MeterNumberField,
             TotalBill, TotalBillField, Status, StatusField;
     Choice BillingMonthChoice;
     String MeterNumberValue;
+    JButton Pay, Back;
 
     PayBill(String MeterNumberValue) {
         super("Pay bill");
@@ -111,12 +116,11 @@ public class PayBill extends JFrame {
         }
 
         BillingMonthChoice.addItemListener(new ItemListener() {
-
             @Override
             public void itemStateChanged(ItemEvent arg) {
                 try {
                     DbConnect db = new DbConnect();
-                    ResultSet  rs = db.s.executeQuery("select * from Bill where meterNumber = '" + MeterNumberValue
+                    ResultSet rs = db.s.executeQuery("select * from Bill where meterNumber = '" + MeterNumberValue
                             + "' and BillingMonth = '" + BillingMonthChoice.getSelectedItem() + "' ");
                     while (rs.next()) {
                         UnitsConsumedField.setText(rs.getString("UnitsConsumed"));
@@ -128,10 +132,41 @@ public class PayBill extends JFrame {
                     e.printStackTrace();
                 }
             }
-
         });
+
+        Pay = new JButton("Pay");
+        Pay.setBackground(Color.black);
+        Pay.setForeground(Color.ORANGE);
+        Pay.setBounds(100, 250, 100, 20);
+        Pay.addActionListener(this);
+        add(Pay);
+
+        Back = new JButton("Back");
+        Back.setBackground(Color.black);
+        Back.setForeground(Color.ORANGE);
+        Back.setBounds(220, 250, 100, 20);
+        Back.addActionListener(this);
+        add(Back);
+
         setVisible(true);
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent arg) {
+        if (arg.getSource() == Back) {
+            setVisible(false);
+        } else if (arg.getSource() == Pay) {
+            try {
+                DbConnect db = new DbConnect();
+                db.s.executeUpdate("update Bill set Status = 'Paid' where MeterNumber = '" + MeterNumberValue + "' ");
+                JOptionPane.showMessageDialog(null, "Paid successfully");
+                setVisible(false);
+                new UPI(MeterNumberValue );
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) {
