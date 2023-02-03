@@ -34,11 +34,11 @@ public class Navbar extends JFrame implements ActionListener {
         // navbar elements
         JMenu Home = new JMenu("Home");
 
-        JMenu Report = new JMenu("Report");
+        JMenu BillGeneration = new JMenu("Bill Generation");
 
         JMenu Information = new JMenu("Information");
 
-        JMenu User = new JMenu("User");
+        JMenu Bills = new JMenu("Bills");
 
         JMenu Utility = new JMenu("Utility");
 
@@ -46,9 +46,9 @@ public class Navbar extends JFrame implements ActionListener {
         if (atype.equals("Admin")) {
             navbar.add(Home);
         } else {
-            navbar.add(Report);
+            navbar.add(BillGeneration);
             navbar.add(Information);
-            navbar.add(User);
+            navbar.add(Bills);
         }
         navbar.add(Utility);
         navbar.add(Exit);
@@ -83,7 +83,7 @@ public class Navbar extends JFrame implements ActionListener {
         CalculateBill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         CalculateBill.addActionListener(this);
 
-        // User
+        // Bills
         JMenuItem BillDetails = new JMenuItem("Bill Details");
         BillDetails.setBackground(Color.LIGHT_GRAY);
         BillDetails.setFont(new Font("SERIF", Font.ITALIC, 16));
@@ -100,7 +100,7 @@ public class Navbar extends JFrame implements ActionListener {
         PayBill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
         PayBill.addActionListener(this);
 
-        // Report
+        // BillGeneration
         JMenuItem GenerateBill = new JMenuItem("Generate Bill");
         GenerateBill.setBackground(Color.MAGENTA);
         GenerateBill.setFont(new Font("SERIF", Font.ITALIC, 16));
@@ -157,10 +157,10 @@ public class Navbar extends JFrame implements ActionListener {
         Home.add(DepositDetails);
         Home.add(CalculateBill);
 
-        Report.add(GenerateBill);
+        BillGeneration.add(GenerateBill);
 
-        User.add(BillDetails);
-        User.add(PayBill);
+        Bills.add(BillDetails);
+        Bills.add(PayBill);
 
         Information.add(UpdateInformation);
         Information.add(ViewInformation);
@@ -193,7 +193,7 @@ public class Navbar extends JFrame implements ActionListener {
         } else if (msg.equals("View information")) {
             new ViewInformation(meterValue);
         } else if (msg.equals("Update information")) {
-            new UpdateInformation(meterValue);
+            new UpdateInformation(meterValue,"");
         } else if (msg.equals("Bill Details")) {
             new BillDetails(meterValue);
         } else if (msg.equals("Notepad")) {

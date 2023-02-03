@@ -110,7 +110,6 @@ public class PayBill extends JFrame implements ActionListener {
                 TotalBillField.setText(rs.getString("TotalBill"));
                 StatusField.setText(rs.getString("Status"));
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -159,7 +158,7 @@ public class PayBill extends JFrame implements ActionListener {
         } else if (arg.getSource() == Pay) {
             try {
                 DbConnect db = new DbConnect();
-                db.s.executeUpdate("update Bill set Status = 'Paid' where MeterNumber = '" + MeterNumberValue + "' ");
+                db.s.executeUpdate("update Bill set Status = 'Paid' where MeterNumber = '" + MeterNumberValue + "' and BillingMonth =  '"+BillingMonthChoice.getSelectedItem()+"' ");
                 JOptionPane.showMessageDialog(null, "Paid successfully");
                 setVisible(false);
                 new UPI(MeterNumberValue);

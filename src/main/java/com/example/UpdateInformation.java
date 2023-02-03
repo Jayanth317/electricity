@@ -11,14 +11,15 @@ import java.awt.event.*;
 
 public class UpdateInformation extends JFrame implements ActionListener {
     JLabel Customer, Address, MeterNumber, City, State, Email, ranNum, Phone;
-    JTextField CustomerField, AddressField, MeterNumberFieldyField, Field, EmailField, PhoneField, CityField,
+    JTextField CustomerField, AddressField, MeterNumberField, Field, EmailField, PhoneField, CityField,
             StateField;
     JButton Next, Cancel;
-    String MeterNumberValue;
+    String MeterNumberValue,CustomerName;
 
-    UpdateInformation(String MeterNumberValue) {
+    UpdateInformation(String MeterNumberValue,String CustomerName) {
         super("Update information");
         this.MeterNumberValue = MeterNumberValue;
+        this.CustomerName = CustomerName;
         setBounds(300, 400, 600, 400);
         getContentPane().setBackground(Color.white);
         setLayout(null);
@@ -28,16 +29,29 @@ public class UpdateInformation extends JFrame implements ActionListener {
         Customer.setFont(new Font("Cambria", Font.BOLD, 12));
         add(Customer);
 
+        CustomerField = new JTextField(CustomerName);
+        CustomerField.setBounds(250, 40, 140, 20);
+        CustomerField.setFont(new Font("Cambria", Font.BOLD, 12));
+        CustomerField.setEnabled(false);
+        add(CustomerField);
+        
+
         MeterNumber = new JLabel("Meter Number");
         MeterNumber.setBounds(100, 70, 140, 20);
         MeterNumber.setFont(new Font("Cambria", Font.BOLD, 12));
         add(MeterNumber);
 
+        MeterNumberField = new JTextField(MeterNumberValue);
+        MeterNumberField.setBounds(250,70,140,20);
+        MeterNumberField.setFont(new Font("Cambria", Font.BOLD, 12));
+        MeterNumberField.setEnabled(false);
+        add(MeterNumberField);
+
         Address = new JLabel("Address");
         Address.setBounds(100, 100, 140, 20);
         Address.setFont(new Font("Cambria", Font.BOLD, 12));
         add(Address);
-        AddressField = new JTextField("Address");
+        AddressField = new JTextField("");
         AddressField.setBounds(250, 100, 150, 20);
         AddressField.setFont(new Font("Cambria", Font.BOLD, 12));
         add(AddressField);
@@ -46,7 +60,7 @@ public class UpdateInformation extends JFrame implements ActionListener {
         City.setBounds(100, 130, 140, 20);
         City.setFont(new Font("Cambria", Font.BOLD, 12));
         add(City);
-        CityField = new JTextField("City");
+        CityField = new JTextField("");
         CityField.setBounds(250, 130, 150, 20);
         CityField.setFont(new Font("Cambria", Font.BOLD, 12));
         add(CityField);
@@ -55,25 +69,25 @@ public class UpdateInformation extends JFrame implements ActionListener {
         State.setBounds(100, 160, 140, 20);
         State.setFont(new Font("Cambria", Font.BOLD, 12));
         add(State);
-        StateField = new JTextField("StateField");
+        StateField = new JTextField("");
         StateField.setBounds(250, 160, 150, 20);
         StateField.setFont(new Font("Cambria", Font.BOLD, 12));
         add(StateField);
 
-        Email = new JLabel("New Email");
+        Email = new JLabel("Email");
         Email.setBounds(100, 190, 140, 20);
         Email.setFont(new Font("Cambria", Font.BOLD, 12));
         add(Email);
-        EmailField = new JTextField("Email");
+        EmailField = new JTextField("");
         EmailField.setBounds(250, 190, 150, 20);
         EmailField.setFont(new Font("Cambria", Font.BOLD, 12));
         add(EmailField);
 
-        Phone = new JLabel("New Phone");
+        Phone = new JLabel("Phone");
         Phone.setBounds(100, 220, 140, 20);
         Phone.setFont(new Font("Cambria", Font.BOLD, 12));
         add(Phone);
-        PhoneField = new JTextField("Phone");
+        PhoneField = new JTextField("");
         PhoneField.setBounds(250, 220, 150, 20);
         PhoneField.setFont(new Font("Cambria", Font.BOLD, 12));
         add(PhoneField);
@@ -122,6 +136,6 @@ public class UpdateInformation extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new UpdateInformation("");
+        new UpdateInformation("","");
     }
 }
